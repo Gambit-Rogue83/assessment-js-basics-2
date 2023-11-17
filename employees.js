@@ -2,123 +2,129 @@
 ///////////////////EMPLOYEES.JS/////////////////////
 ////////////////////////////////////////////////////
 /*
-    In this file, you'll be writing classes to 
+    In this file, you'll be writing classes to
     store information about restaurant employees.
 */
 
 //////////////////PROBLEM 1////////////////////
-/*  
-    Create a new class called `Employee`.
-    Make sure to call your constructor, and 
-    require these 2 parameters: name, shifts.
-
-    Create a method on the class called 
-    `getSchedule` that prints a string:
-    [NAME] works on [SHIFTS]
-    Where NAME and SHIFTS reference the values
-    stored on the object.
+/*
+    Create a new class called `Employee`. Make sure to call your constructor,
+    and require these 2 parameters: name, shifts. Create a method on the
+    class called `getSchedule` that prints a string: [NAME] works on [SHIFTS]
+    Where NAME and SHIFTS reference the values stored on the object.
 */
 
 //CODE HERE
 
+class Employee { //create an Employee class, to use for future employee objects
+    constructor(name, shifts){ //the properties we're interested in is name and shifts
+        this.name = name;
+        this.shifts = shifts;
+    }
+    getSchedule() { //this method will relate the employee's name and shift schedule
+        console.log(`${this.name} works on ${this.shifts}`)
+    }
+}
 
 
 /*
-    Create a new instance of your class.
-    Save it to a variable called `empOne`.
-
-    You can use this sample data or make
-    up your own:
-    name: Jess
+    Create a new instance of your class. Save it to a variable called
+    `empOne`. You can use this sample data or make up your own: name: Jess
     shifts: weekday mornings, weekday afternoons
 */
 
 //CODE HERE
 
+//instantiation of new object using Employee class. Passing in name and shifts
+const emp1 = new Employee('Tonka Jihari', 'Weekday mornings, weeday afternoons')
+
+
 /*
-    Call the `getSchedule` method on the
-    `empOne` object.
+    Call the `getSchedule` method on the `empOne` object.
 */
 
 //CODE HERE
 
+emp1.getSchedule()
 
 /*
-    Make a copy of the empOne object
-    using the spread operator.
-    Save it to a variable called `empTwo`.
-
-    Change the name of `empTwo` to 'Nick'.
-
-    Hint: you can do this inline with the 
-    spread operator or reassign it using 
-    dot or bracket notation.
+    Make a copy of the empOne object using the spread operator. Save it to
+    a variable called `empTwo`. Change the name of `empTwo` to 'Nick'.
+    Hint: you can do this inline with the spread operator or reassign it
+    using dot or bracket notation.
 */
 
 //CODE HERE
 
-
+const emp2 = {...emp1}
+emp2.name = 'Nick'
+console.log(emp2, emp1)
 
 //////////////////PROBLEM 2////////////////////
-/*  
-    Write a class called Manager that *extends* 
-    the Employee class. In the constructor, 
-    make sure you require all of the parameters 
-    from the Employee class as well as 1 
-    new one: employees, which will be an array of 
-    employees that report to this manager. 
-    (Hint: don't forget to call the super function)
-
-    Create a method called `getEmployees` that
-    console.logs a string:
-    [NAME] manages [EMPLOYEES]
-    Where NAME and EMPLOYEES reference the values
-    stored on the object.
-
-    Create a second method called `addEmployee`
-    that takes in one argument, `emp`, which
-    should be a string of an employee name.
-    The function should push the name into 
-    the employees array. 
+/*
+    Write a class called Manager that *extends* the Employee class. In the
+    constructor, make sure you require all of the parameters from the
+    Employee class as well as 1 new one: employees, which will be an array
+    of employees that report to this manager. (Hint: don't forget to call
+    the super function) Create a method called `getEmployees` that console.logs
+    a string: [NAME] manages [EMPLOYEES] Where NAME and EMPLOYEES reference
+    the values stored on the object. Create a second method called
+    `addEmployee` that takes in one argument, `emp`, which should be a
+    string of an employee name. The function should push the name into
+    the employees array.
 */
 
 //CODE HERE
 
+class Manager extends Employee { //extend the employee class
+    constructor(name, shifts, employees){ //employees is the new property for manager, which will be an array
+        super(name, shifts) //pull definitions from parent class
+
+        this.employees = employees;
+    }
+    getEmployees(){ //function stating the manager who manages a given employee
+        console.log(`${this.name} manages ${this.employees}.`)
+    }
+    addEmployees(emp){ //function adding new employees to the employees list
+        this.employees.push(emp)
+    }
+}
 
 
 /*
-    Create a new instance of your class.
-    Save it to a variable called `manager`.
-
-    You can use this sample data or make
-    up your own:
-    name: Winston
-    shifts: weekday mornings, weekday afternoons
+    Create a new instance of your class. Save it to a variable called
+    `manager`. You can use this sample data or make up your own:
+    name: Winston shifts: weekday mornings, weekday afternoons
     employees: Cece and Schmidt
 */
 
 //CODE HERE
 
+const manager = new Manager('Robert Bartholemew Johnson XIII',
+                'Weekday morning, weekday afternoons', ['Cece', ' Schmidt'])
 
 /*
-    Call the `getEmployees` method on the
-    `manager` object.  
+    Call the `getEmployees` method on the `manager` object.
 */
 
 //CODE HERE
 
+manager.getEmployees() //Who is the manager and who he manages
+
 /*
-    Call the `addEmployee` method on the 
-    `manager` object passing in the string 
+    Call the `addEmployee` method on the `manager` object passing in the string
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+//CODE HERE
+
+manager.addEmployees(' Nicky Minaj') //Nicky gets hired by the Manager
 
 /*
-    Call the `getEmployees` method on the
-    `manager` object again to confirm 
+    Call the `getEmployees` method on the `manager` object again to confirm
     that an employee was added.
 */
 
 //CODE HERE
+
+manager.getEmployees() //employee role call
