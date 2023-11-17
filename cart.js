@@ -32,15 +32,8 @@ const cart = [
 
 //CODE HERE
 
-// const cartPrice = item =>{
-//     let total = 0
-//     for(let i = 0; i < item.length; i++){
-//         total += item[i].price
-//     } return total
-// }
-
-// const summedPrice = cart.reduce((acc, cur) => acc + cur)
-// console.log(summedPrice)
+const summedPrice = cart.reduce((acc, cur) => acc + cur.price, 0);
+console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -60,6 +53,7 @@ const calcFinalPrice = (cartTotal, couponValue, tax) =>{
     return cartTotal + tax
 }
 
+console.log(calcFinalPrice(summedPrice, 5, .08))
 
 //////////////////PROBLEM 3////////////////////
 /*

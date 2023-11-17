@@ -134,20 +134,21 @@ console.log(foodArr)
 */
 
 //CODE HERE
+
+
+
 // const meat = foodArr =>{
-//     let tag = null
+//     let tag = []
 //     for(let i = 0; i < foodArr.length; i++){
-//         for(let j = 0; j < foodArr[i].tag.length; j++){
+//         for(let j in foodArr[i].tag){
 //             if(foodArr[i].tag[j] === 'Meat'){
-//                 tag += foodArr[i].name
+//                 tag = tag.push(foodArr[i].name)
 //         }
 //     }
-// }
+// } return tag
 // }
 
-// let filteredFood = foodArr.filter(meat)
-
-// console.log(filteredFood)
+// console.log(meat(foodArr))
 
 
 //////////////////PROBLEM 5////////////////////

@@ -12,5 +12,5 @@
 ## ChiroTouch Healthcare
 - HTML5, jQuery, Google Analytics
 
-## xAI
+## xAI (Elon Musk)
 -- Rust, JAX & XLA, Triton & CUDA, TypeScript, React & Angular
